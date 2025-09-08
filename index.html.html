@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Swati Singh · Cybersecurity Portfolio</title>
+
+<!-- Optional Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#0b1220;           /* page background (very dark slate) */
+    --panel:#0f172a;        /* section background */
+    --card:#111a2e;         /* cards */
+    --text:#e5e7eb;         /* primary text */
+    --muted:#9aa4b2;        /* secondary text */
+    --accent:#06b6d4;       /* cyan accent */
+    --accent-2:#22d3ee;     /* lighter cyan */
+    --stroke:#1f2937;       /* borders */
+    --ring: rgba(34,211,238,.25);
+    --radius:16px;
+    --shadow: 0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+  a{color:var(--accent);text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{width:min(1100px, 92%);margin:auto}
+
+  /* NAV */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,18,32,.85);
+    backdrop-filter: blur(8px);
+    border-bottom:1px solid var(--stroke);
+  }
+  .nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 0;
+  }
+  .brand{font-weight:800;letter-spacing:.4px;color:var(--text)}
+  .brand .dot{color:var(--accent)}
+  .links a{
+    color:var(--text);opacity:.85;margin-left:20px;font-weight:600;font-size:14px
+  }
+  .links a:hover{color:var(--accent)}
+  .nav.scrolled{box-shadow:0 6px 20px rgba(0,0,0,.35)}
+
+  /* HERO */
+  .hero{padding:72px 0 36px;background:
+      radial-gradient(800px 400px at 85% -10%, rgba(34,211,238,.18), transparent 60%),
+      radial-gradient(700px 400px at -20% 20%, rgba(6,182,212,.18), transparent 60%)}
+  .hero .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+  .kicker{display:inline-block;background:rgba(34,211,238,.12);color:var(--accent);
+    border:1px solid var(--ring);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.4px}
+  .title{font-size:40px;line-height:1.15;margin:14px 0 12px;font-weight:800}
+  .subtitle{color:var(--muted);font-size:16px;margin-bottom:22px}
+  .cta{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    color:#03101b;border:none;padding:12px 18px;border-radius:12px;
+    font-weight:800;letter-spacing:.3px;box-shadow:0 8px 18px var(--ring);cursor:pointer
+  }
+  .btn.secondary{
+    background:transparent;border:1px solid var(--stroke);color:var(--text);
+  }
+  .badge{
+    width:280px;height:280px;border-radius:50%;
+    background:
+      radial-gradient(closest-side, rgba(255,255,255,.08), rgba(255,255,255,0)),
+      conic-gradient(from 0deg, var(--accent) 0deg, var(--accent-2) 120deg, #1dd3b0 240deg, var(--accent) 360deg);
+    position:relative;display:grid;place-items:center;box-shadow:var(--shadow);isolation:isolate;
+    animation:spin 18s linear infinite paused;
+  }
+  .badge:hover{animation-play-state:running}
+  .badge::after{
+    content:"";position:absolute;inset:18px;border-radius:50%;
+    background:var(--panel);border:1px solid var(--stroke)
+  }
+  .badge h1{
+    position:relative;z-index:1;margin:0;font-size:28px;color:var(--accent-2);text-shadow:0 2px 12px rgba(34,211,238,.25)
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* SECTIONS */
+  section{padding:56px 0;border-top:1px solid var(--stroke)}
+  h2.section-title{
+    font-size:26px;margin:0 0 20px;font-weight:800;
+    display:flex;align-items:center;gap:10px
+  }
+  h2.section-title .bar{width:6px;height:24px;background:linear-gradient(180deg,var(--accent),var(--accent-2));border-radius:6px}
+  .muted{color:var(--muted)}
+
+  /* CARDS + GRID */
+  .grid{display:grid;gap:18px}
+  .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+  .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+  @media (max-width:900px){.hero .grid{grid-template-columns:1fr;}.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}}
+
+  .card{
+    background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);
+    padding:18px;box-shadow:0 0 0 rgba(0,0,0,0);transition:.25s transform, .25s box-shadow, .25s border-color
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#19314f}
+
+  /* SKILL BARS */
+  .skill{margin:10px 0 14px}
+  .skill label{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:6px}
+  .bar{height:10px;background:#0c1527;border:1px solid var(--stroke);border-radius:999px;overflow:hidden}
+  .bar > span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width 1.2s ease}
+
+  /* TIMELINE (Education) */
+  .timeline{position:relative;margin-left:10px}
+  .timeline::before{content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:#1c2a42}
+  .step{position:relative;padding-left:28px;margin:18px 0}
+  .step::before{content:"";position:absolute;left:2px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--ring)}
+
+  /* CONTACT */
+  .contact a{color:var(--text)}
+  .chip{display:inline-block;background:#0f2031;border:1px solid #15314a;color:var(--muted);padding:6px 10px;border-radius:999px;font-size:12px;margin:4px 6px 0 0}
+
+  /* REVEAL ANIMATIONS */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
+  .reveal.show{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="nav" id="nav">
+  <div class="container wrap">
+    <div class="brand">Swati Singh<span class="dot"> · Cybersecurity</span></div>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#certs">Certificates</a>
+      <a href="#projects">Projects</a>
+      <a href="#edu">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <div class="grid">
+      <div>
+        <span class="kicker">Portfolio</span>
+        <h1 class="title">Aspiring <span style="color:var(--accent-2)">Cybersecurity Analyst</span></h1>
+        <p class="subtitle">
+          2nd-year BCA student at Lovely Professional University. I’m building a strong base in networking,
+          security fundamentals and tooling, while practicing with projects, hackathons and industry-recognized certificates.
+        </p>
+        <div class="cta">
+          <a class="btn" href="#contact">Get in touch</a>
+          <a class="btn secondary" href="#projects">View my work</a>
+        </div>
+        <div style="margin-top:14px">
+          <span class="chip">C</span>
+          <span class="chip">C++</span>
+          <span class="chip">Python</span>
+          <span class="chip">HTML</span>
+          <span class="chip">MySQL</span>
+          <span class="chip">Security Fundamentals</span>
+        </div>
+      </div>
+
+      <div style="display:grid;place-items:center">
+        <div class="badge">
+          <h1>Swati Singh</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container reveal">
+    <h2 class="section-title"><span class="bar"></span> About Me</h2>
+    <p class="muted" style="max-width:850px">
+      I’m focused on starting my career as a <strong>Cybersecurity Analyst</strong>. Right now I’m strengthening
+      my foundation in programming (C, C++, Python, HTML), databases (MySQL) and core security concepts.
+      I’m actively pursuing beginner-friendly certifications and hands-on practice, with a clear plan to add
+      <strong>Security+</strong> and <strong>CCNA</strong> next. My goal is to join a SOC/Analyst team, learn fast,
+      and grow into senior roles with real-world experience.
+    </p>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container reveal">
+    <h2 class="section-title"><span class="bar"></span> Skills & Expertise</h2>
+
+    <div class="grid cols-3">
+      <div class="card">
+        <h3>Programming</h3>
+        <div class="skill"><label><span>C</span><span>40%</span></label><div class="bar"><span data-width="40%"></span></div></div>
+        <div class="skill"><label><span>C++</span><span>40%</span></label><div class="bar"><span data-width="40%"></span></div></div>
+        <div class="skill"><label><span>Python</span><span>60%</span></label><div class="bar"><span data-width="60%"></span></div></div>
+        <div class="skill"><label><span>HTML</span><span>30%</span></label><div class="bar"><span data-width="30%"></span></div></div>
+      </div>
+
+      <div class="card">
+        <h3>Databases & Tools</h3>
+        <div class="skill"><label><span>MySQL</span><span>50%</span></label><div class="bar"><span data-width="50%"></span></div></div>
+        <div class="skill"><label><span>MS Office</span><span>80%</span></label><div class="bar"><span data-width="80%"></span></div></div>
+        <div class="skill"><label><span>Internet Research</span><span>70%</span></label><div class="bar"><span data-width="70%"></span></div></div>
+      </div>
+
+      <div class="card">
+        <h3>Soft Skills</h3>
+        <p class="muted" style="margin-top:8px">
+          Teamwork · Helping Nature · Adaptability · Time Management · Developing Communication
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section id="certs">
+  <div class="container reveal">
+    <h2 class="section-title"><span class="bar"></span> Certificates</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <strong>Python for Beginners — Google/Coursera</strong>
+        <p class="muted">30-hour foundation in syntax, flow, and basic problem solving.</p>
+      </div>
+      <div class="card">
+        <strong>Python (Intermediate) — Coursera</strong>
+        <p class="muted">Expanded practice with functions, data structures and simple projects.</p>
+      </div>
+      <div class="card">
+        <strong>Cybersecurity Fundamentals — Ongoing</strong>
+        <p class="muted">Concepts: threats, controls, SOC basics, security awareness.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container reveal">
+    <h2 class="section-title"><span class="bar"></span> Projects & Activities</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Library Management System (Python + MySQL)</h3>
+        <p class="muted">Console app with book records, issue/return flow and menu navigation.</p>
+      </div>
+      <div class="card">
+        <h3>Hackathon — Code-A-Hunt (LPU, 2025)</h3>
+        <p class="muted">Participation certificate; teamwork, problem understanding, and exposure to time-bound tasks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="edu">
+  <div class="container reveal">
+    <h2 class="section-title"><span class="bar"></span> Education</h2>
+    <div class="timeline">
+      <div class="step">
+        <strong>BCA (2024–2027) — Lovely Professional University</strong>
+        <div class="muted">CGPA: 9.35</div>
+      </div>
+      <div class="step">
+        <strong>Class 12 — Bethany Convent School (CBSE)</strong>
+        <div class="muted">78.2%</div>
+      </div>
+      <div class="step">
+        <strong>Class 10 — Bethany Convent School (CBSE)</strong>
+        <div class="muted">93.2%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container reveal">
+    <h2 class="section-title"><span class="bar"></span> Contact</h2>
+    <p class="muted">I’m open to internships and beginner analyst roles.</p>
+    <p>Email: <a href="mailto:swati967061@gmail.com">swati967061@gmail.com</a></p>
+    <p>Phone: +91 9670611468</p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/swati-singh-6b5859353" target="_blank">linkedin.com/in/swati-singh-6b5859353</a></p>
+  </div>
+</section>
+
+<footer style="border-top:1px solid var(--stroke);padding:24px 0;text-align:center;color:var(--muted)">
+  © 2025 Swati Singh · Aspiring Cybersecurity Analyst
+</footer>
+
+<script>
+  // sticky nav shadow
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+  document.addEventListener('scroll', onScroll); onScroll();
+
+  // smooth scroll
+  document.querySelectorAll('.links a').forEach(a=>{
+    a.addEventListener('click', e=>{
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+    });
+  });
+
+  // reveal on scroll + animate skill bars once
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');
+        // if skills section, animate widths
+        entry.target.querySelectorAll('.bar > span').forEach(span=>{
+          const w = span.getAttribute('data-width'); if(w) span.style.width = w;
+        });
+        io.unobserve(entry.target);
+      }
+    });
+  },{threshold:.15});
+
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
+
