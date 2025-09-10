@@ -5,19 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Swati Singh · Cybersecurity Portfolio</title>
 
-<!-- Optional Google Font -->
+<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
   :root{
-    --bg:#0b1220;           /* page background (very dark slate) */
-    --panel:#0f172a;        /* section background */
-    --card:#111a2e;         /* cards */
-    --text:#e5e7eb;         /* primary text */
-    --muted:#9aa4b2;        /* secondary text */
-    --accent:#06b6d4;       /* cyan accent */
-    --accent-2:#22d3ee;     /* lighter cyan */
-    --stroke:#1f2937;       /* borders */
+    --bg:#0b1220;           
+    --panel:#0f172a;        
+    --card:#111a2e;         
+    --text:#e5e7eb;         
+    --muted:#9aa4b2;        
+    --accent:#06b6d4;       
+    --accent-2:#22d3ee;     
+    --stroke:#1f2937;       
     --ring: rgba(34,211,238,.25);
     --radius:16px;
     --shadow: 0 10px 30px rgba(0,0,0,.35);
@@ -29,66 +29,36 @@
   .container{width:min(1100px, 92%);margin:auto}
 
   /* NAV */
-  .nav{
-    position:sticky; top:0; z-index:50;
-    background:rgba(11,18,32,.85);
-    backdrop-filter: blur(8px);
-    border-bottom:1px solid var(--stroke);
-  }
-  .nav .wrap{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:14px 0;
-  }
+  .nav{position:sticky; top:0; z-index:50;background:rgba(11,18,32,.85);backdrop-filter: blur(8px);border-bottom:1px solid var(--stroke);}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 0;}
   .brand{font-weight:800;letter-spacing:.4px;color:var(--text)}
   .brand .dot{color:var(--accent)}
-  .links a{
-    color:var(--text);opacity:.85;margin-left:20px;font-weight:600;font-size:14px
-  }
+  .links a{color:var(--text);opacity:.85;margin-left:20px;font-weight:600;font-size:14px}
   .links a:hover{color:var(--accent)}
-  .nav.scrolled{box-shadow:0 6px 20px rgba(0,0,0,.35)}
 
   /* HERO */
   .hero{padding:72px 0 36px;background:
       radial-gradient(800px 400px at 85% -10%, rgba(34,211,238,.18), transparent 60%),
       radial-gradient(700px 400px at -20% 20%, rgba(6,182,212,.18), transparent 60%)}
   .hero .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
-  .kicker{display:inline-block;background:rgba(34,211,238,.12);color:var(--accent);
-    border:1px solid var(--ring);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.4px}
+  .kicker{display:inline-block;background:rgba(34,211,238,.12);color:var(--accent);border:1px solid var(--ring);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.4px}
   .title{font-size:40px;line-height:1.15;margin:14px 0 12px;font-weight:800}
   .subtitle{color:var(--muted);font-size:16px;margin-bottom:22px}
   .cta{display:flex;gap:14px;flex-wrap:wrap}
-  .btn{
-    background:linear-gradient(135deg,var(--accent),var(--accent-2));
-    color:#03101b;border:none;padding:12px 18px;border-radius:12px;
-    font-weight:800;letter-spacing:.3px;box-shadow:0 8px 18px var(--ring);cursor:pointer
-  }
-  .btn.secondary{
-    background:transparent;border:1px solid var(--stroke);color:var(--text);
-  }
-  .badge{
-    width:280px;height:280px;border-radius:50%;
-    background:
+  .btn{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#03101b;border:none;padding:12px 18px;border-radius:12px;font-weight:800;letter-spacing:.3px;box-shadow:0 8px 18px var(--ring);cursor:pointer}
+  .btn.secondary{background:transparent;border:1px solid var(--stroke);color:var(--text);}
+  .badge{width:280px;height:280px;border-radius:50%;background:
       radial-gradient(closest-side, rgba(255,255,255,.08), rgba(255,255,255,0)),
       conic-gradient(from 0deg, var(--accent) 0deg, var(--accent-2) 120deg, #1dd3b0 240deg, var(--accent) 360deg);
-    position:relative;display:grid;place-items:center;box-shadow:var(--shadow);isolation:isolate;
-    animation:spin 18s linear infinite paused;
-  }
+    position:relative;display:grid;place-items:center;box-shadow:var(--shadow);isolation:isolate;animation:spin 18s linear infinite paused;}
   .badge:hover{animation-play-state:running}
-  .badge::after{
-    content:"";position:absolute;inset:18px;border-radius:50%;
-    background:var(--panel);border:1px solid var(--stroke)
-  }
-  .badge h1{
-    position:relative;z-index:1;margin:0;font-size:28px;color:var(--accent-2);text-shadow:0 2px 12px rgba(34,211,238,.25)
-  }
+  .badge::after{content:"";position:absolute;inset:18px;border-radius:50%;background:var(--panel);border:1px solid var(--stroke)}
+  .badge h1{position:relative;z-index:1;margin:0;font-size:28px;color:var(--accent-2);text-shadow:0 2px 12px rgba(34,211,238,.25)}
   @keyframes spin{to{transform:rotate(360deg)}}
 
   /* SECTIONS */
   section{padding:56px 0;border-top:1px solid var(--stroke)}
-  h2.section-title{
-    font-size:26px;margin:0 0 20px;font-weight:800;
-    display:flex;align-items:center;gap:10px
-  }
+  h2.section-title{font-size:26px;margin:0 0 20px;font-weight:800;display:flex;align-items:center;gap:10px}
   h2.section-title .bar{width:6px;height:24px;background:linear-gradient(180deg,var(--accent),var(--accent-2));border-radius:6px}
   .muted{color:var(--muted)}
 
@@ -97,11 +67,7 @@
   .grid.cols-3{grid-template-columns:repeat(3,1fr)}
   .grid.cols-2{grid-template-columns:repeat(2,1fr)}
   @media (max-width:900px){.hero .grid{grid-template-columns:1fr;}.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}}
-
-  .card{
-    background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);
-    padding:18px;box-shadow:0 0 0 rgba(0,0,0,0);transition:.25s transform, .25s box-shadow, .25s border-color
-  }
+  .card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:18px;transition:.25s transform, .25s box-shadow, .25s border-color}
   .card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#19314f}
 
   /* SKILL BARS */
@@ -110,7 +76,7 @@
   .bar{height:10px;background:#0c1527;border:1px solid var(--stroke);border-radius:999px;overflow:hidden}
   .bar > span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width 1.2s ease}
 
-  /* TIMELINE (Education) */
+  /* TIMELINE */
   .timeline{position:relative;margin-left:10px}
   .timeline::before{content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:#1c2a42}
   .step{position:relative;padding-left:28px;margin:18px 0}
@@ -120,9 +86,32 @@
   .contact a{color:var(--text)}
   .chip{display:inline-block;background:#0f2031;border:1px solid #15314a;color:var(--muted);padding:6px 10px;border-radius:999px;font-size:12px;margin:4px 6px 0 0}
 
-  /* REVEAL ANIMATIONS */
+  /* REVEAL */
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
   .reveal.show{opacity:1;transform:none}
+
+  /* Soft Skills grid */
+  .ss-grid{display:grid;grid-template-columns:1fr;gap:12px;}
+  @media (min-width:700px){.ss-grid{grid-template-columns:1fr 1fr;}}
+  .ss-item{background: var(--panel);border: 1px solid var(--stroke);border-radius: 12px;padding: 12px 14px;}
+  .ss-title{font-weight: 700;margin-bottom: 4px;}
+  .ss-note{font-size: 13px;line-height: 1.45;}
+
+  /* Activities Section */
+  .activity-card {
+    background: var(--card);
+    border: 1px solid var(--stroke);
+    border-radius: 12px;
+    padding: 16px;
+    transition: .25s transform, .25s box-shadow, .25s border-color;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .activity-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+    border-color: #19314f;
+  }
 </style>
 </head>
 <body>
@@ -136,6 +125,7 @@
       <a href="#skills">Skills</a>
       <a href="#certs">Certificates</a>
       <a href="#projects">Projects</a>
+      <a href="#activities">Activities</a>
       <a href="#edu">Education</a>
       <a href="#contact">Contact</a>
     </div>
@@ -166,11 +156,8 @@
           <span class="chip">Security Fundamentals</span>
         </div>
       </div>
-
       <div style="display:grid;place-items:center">
-        <div class="badge">
-          <h1>Swati Singh</h1>
-        </div>
+        <div class="badge"><h1>Swati Singh</h1></div>
       </div>
     </div>
   </div>
@@ -181,11 +168,11 @@
   <div class="container reveal">
     <h2 class="section-title"><span class="bar"></span> About Me</h2>
     <p class="muted" style="max-width:850px">
-      I’m focused on starting my career as a <strong>Cybersecurity Analyst</strong>. Right now I’m strengthening
-      my foundation in programming (C, C++, Python, HTML), databases (MySQL) and core security concepts.
-      I’m actively pursuing beginner-friendly certifications and hands-on practice, with a clear plan to add
-      <strong>Security+</strong> and <strong>CCNA</strong> next. My goal is to join a SOC/Analyst team, learn fast,
-      and grow into senior roles with real-world experience.
+      I’m a 2nd-year BCA student at Lovely Professional University focused on starting my career
+      as a <strong>Cybersecurity Analyst</strong>. I’m building foundations in networking, system security, and
+      security operations while practicing with hands-on projects and industry-recognized courses.
+      Near-term goals: complete <strong>Google Cybersecurity</strong> and <strong>CompTIA Security+</strong>, and apply for a
+      <strong>SOC Analyst</strong> internship.
     </p>
   </div>
 </section>
@@ -194,7 +181,6 @@
 <section id="skills">
   <div class="container reveal">
     <h2 class="section-title"><span class="bar"></span> Skills & Expertise</h2>
-
     <div class="grid cols-3">
       <div class="card">
         <h3>Programming</h3>
@@ -203,19 +189,22 @@
         <div class="skill"><label><span>Python</span><span>60%</span></label><div class="bar"><span data-width="60%"></span></div></div>
         <div class="skill"><label><span>HTML</span><span>30%</span></label><div class="bar"><span data-width="30%"></span></div></div>
       </div>
-
       <div class="card">
         <h3>Databases & Tools</h3>
         <div class="skill"><label><span>MySQL</span><span>50%</span></label><div class="bar"><span data-width="50%"></span></div></div>
         <div class="skill"><label><span>MS Office</span><span>80%</span></label><div class="bar"><span data-width="80%"></span></div></div>
         <div class="skill"><label><span>Internet Research</span><span>70%</span></label><div class="bar"><span data-width="70%"></span></div></div>
       </div>
-
       <div class="card">
-        <h3>Soft Skills</h3>
-        <p class="muted" style="margin-top:8px">
-          Teamwork · Helping Nature · Adaptability · Time Management · Developing Communication
-        </p>
+        <h3>Soft Skills & Personal Qualities</h3>
+        <div class="ss-grid">
+          <div class="ss-item"><div class="ss-title">Developing Communication</div><div class="ss-note muted">Improving confidence in sharing ideas and interacting with teams.</div></div>
+          <div class="ss-item"><div class="ss-title">Teamwork</div><div class="ss-note muted">Comfortable working with peers and contributing to group tasks.</div></div>
+          <div class="ss-item"><div class="ss-title">Adaptability</div><div class="ss-note muted">Learning to adjust quickly to new tools, feedback, and situations.</div></div>
+          <div class="ss-item"><div class="ss-title">Time Management</div><div class="ss-note muted">Managing assignments and projects within given timelines.</div></div>
+          <div class="ss-item"><div class="ss-title">Problem-Solving</div><div class="ss-note muted">Approaching tasks step by step and building logical thinking skills.</div></div>
+          <div class="ss-item"><div class="ss-title">Professional Attitude</div><div class="ss-note muted">Respectful, disciplined, and eager to learn in academic & work settings.</div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -227,16 +216,16 @@
     <h2 class="section-title"><span class="bar"></span> Certificates</h2>
     <div class="grid cols-2">
       <div class="card">
-        <strong>Python for Beginners — Google/Coursera</strong>
-        <p class="muted">30-hour foundation in syntax, flow, and basic problem solving.</p>
+        <ul style="margin:0;padding-left:18px">
+          <li>🎓 Coursera – Python Programming</li>
+          <li>🎓 IBM – Cybersecurity Basics</li>
+        </ul>
       </div>
       <div class="card">
-        <strong>Python (Intermediate) — Coursera</strong>
-        <p class="muted">Expanded practice with functions, data structures and simple projects.</p>
-      </div>
-      <div class="card">
-        <strong>Cybersecurity Fundamentals — Ongoing</strong>
-        <p class="muted">Concepts: threats, controls, SOC basics, security awareness.</p>
+        <ul style="margin:0;padding-left:18px">
+          <li>🎓 NPTEL & Swayam – Cybersecurity & Programming MOOCs</li>
+          <li>🤝 NGO – Social Welfare Volunteering Certificate (2 months)</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -245,16 +234,28 @@
 <!-- PROJECTS -->
 <section id="projects">
   <div class="container reveal">
-    <h2 class="section-title"><span class="bar"></span> Projects & Activities</h2>
+    <h2 class="section-title"><span class="bar"></span> Projects</h2>
     <div class="grid cols-2">
       <div class="card">
-        <h3>Library Management System (Python + MySQL)</h3>
-        <p class="muted">Console app with book records, issue/return flow and menu navigation.</p>
+        <h3>Cybersecurity – Password Strength Checker</h3>
+        <p class="muted">A Python-based tool to evaluate password strength by checking length, character types, and complexity.</p>
       </div>
       <div class="card">
-        <h3>Hackathon — Code-A-Hunt (LPU, 2025)</h3>
-        <p class="muted">Participation certificate; teamwork, problem understanding, and exposure to time-bound tasks.</p>
+        <h3>Library Management System</h3>
+        <p class="muted">A C++ and MySQL project to manage books, students, and issue/return records effectively.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section id="activities">
+  <div class="container reveal">
+    <h2 class="section-title"><span class="bar"></span> Activities & Achievements</h2>
+    <div class="grid cols-2">
+      <div class="activity-card">🏆 Finalist in <strong>EduRev Debate Competition</strong> (LPU) <div class="muted">Topic: “AI: Boon or Bane”</div></div>
+      <div class="activity-card">💡 Participated in <strong>Code A Hunt 2.0</strong> — A Premier State-Level Inter-University Hackathon organised by LPU <div class="muted">Teamwork and rapid problem-solving exposure</div></div>
+      <div class="activity-card">🤝 Volunteered at a <strong>Local NGO</strong> for 2 months <div class="muted">Community outreach and social welfare work</div></div>
     </div>
   </div>
 </section>
@@ -264,18 +265,9 @@
   <div class="container reveal">
     <h2 class="section-title"><span class="bar"></span> Education</h2>
     <div class="timeline">
-      <div class="step">
-        <strong>BCA (2024–2027) — Lovely Professional University</strong>
-        <div class="muted">CGPA: 9.35</div>
-      </div>
-      <div class="step">
-        <strong>Class 12 — Bethany Convent School (CBSE)</strong>
-        <div class="muted">78.2%</div>
-      </div>
-      <div class="step">
-        <strong>Class 10 — Bethany Convent School (CBSE)</strong>
-        <div class="muted">93.2%</div>
-      </div>
+      <div class="step"><strong>BCA (2024–2027) — Lovely Professional University</strong><div class="muted">CGPA: 9.26</div></div>
+      <div class="step"><strong>Class 12 — Bethany Convent School (CBSE)</strong><div class="muted">80%</div></div>
+      <div class="step"><strong>Class 10 — Bethany Convent School (CBSE)</strong><div class="muted">93.2%</div></div>
     </div>
   </div>
 </section>
@@ -288,6 +280,7 @@
     <p>Email: <a href="mailto:swati967061@gmail.com">swati967061@gmail.com</a></p>
     <p>Phone: +91 9670611468</p>
     <p>LinkedIn: <a href="https://linkedin.com/in/swati-singh-6b5859353" target="_blank">linkedin.com/in/swati-singh-6b5859353</a></p>
+    <p>GitHub: <a href="https://github.com/swati967061-hub" target="_blank">github.com/swati967061-hub</a></p>
   </div>
 </section>
 
@@ -296,12 +289,10 @@
 </footer>
 
 <script>
-  // sticky nav shadow
   const nav = document.getElementById('nav');
   const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
   document.addEventListener('scroll', onScroll); onScroll();
 
-  // smooth scroll
   document.querySelectorAll('.links a').forEach(a=>{
     a.addEventListener('click', e=>{
       e.preventDefault();
@@ -309,12 +300,10 @@
     });
   });
 
-  // reveal on scroll + animate skill bars once
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(entry=>{
       if(entry.isIntersecting){
         entry.target.classList.add('show');
-        // if skills section, animate widths
         entry.target.querySelectorAll('.bar > span').forEach(span=>{
           const w = span.getAttribute('data-width'); if(w) span.style.width = w;
         });
@@ -322,9 +311,10 @@
       }
     });
   },{threshold:.15});
-
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
+
+
 
